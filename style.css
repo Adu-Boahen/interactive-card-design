@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: 0.4s;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+  /*---card-----*/
+main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+main .top{
+    width: 100%;
+    background:linear-gradient(hsl(278, 68%, 11%), hsl(278, 94%, 30%));
+    position: relative;
+    padding:20px;
+    height: 35vh;
+}
+/*-back-view-of-card-*/
+.top .itemOne{
+    position:absolute;
+    right:3%;
+    margin-top: 20px;
+}
+
+.top .itemOne .cardBackImage{
+    width: 70vw;
+    cursor: pointer;
+}
+.top .itemOne .cardbackNumbers{
+    color:#fff;
+    position:absolute;
+    right:10%; 
+    font-size: 0.8em;
+    top:43%;
+}
+/*-front-view-of-card*/
+.top .itemTwo{
+  z-index: 78;
+    position:absolute;
+    left:10px;
+    top:54%;
+}
+.top .itemTwo .cardFrontImage{
+    width: 70vw;
+    box-shadow: 0px 20px 20px hsl(212, 12%, 71%);
+    cursor: pointer;
+}
+/*--card-logo--*/
+.itemTwo .card-logo{
+    position: absolute;
+    left:5%;
+    top:6%;
+}
+/*-back-view-of-card-*/
+.itemTwo .cardFrontNumber{
+    position: absolute;
+    top:54%;
+    left:2px;
+    letter-spacing:  2px;
+    text-align: center;
+    width:100%;
+    color:#fff;
+    font-size: 5vw;
+}
+/*-name and number on card bottom-*/
+.itemTwo .cardbottom{
+    position: absolute;
+    top:73%;
+    padding:5px 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.8vw;
+    color:#fff;
+}
+.cardbottom .cardOwnerName{
+    font-size: 4vw;
+}
+.cardbottom .cardOwnerNumber{
+    font-size: 4vw;
+}
+/*--card-form--*/
+main .down{
+    padding:26% 5% 10px;
+    width: 100%;
+}
+.down form label{
+    font-size: 3vw;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px hsl(212, 12%, 71%);
+}
+.down form input{
+    margin-top: 8px;
+    margin-bottom: 20px;
+    padding:13px 15px;
+    border:1px solid hsl(212, 12%, 71%);
+    border-radius: 10px;
+    width:100%;
+    font-size: 4vw;
+}
+form input::placeholder{
+    font-size: 4vw;
+    color:hsl(212, 12%, 71%);
+    font-weight: 600;
+}
+form .bottomOfForms{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+form .bottomOfForms .date{
+    width: 52%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:0.5em;
+}
+form .bottomOfForms .cvc{
+    width: 42%;
+}
+form button{
+    margin:14px auto;
+    width:100%;
+    border-radius: 10px;
+    border:none;
+    padding:14px 25px;
+    color:#fff;
+    background-color: hsl(278, 68%, 11%);
+    font-size: 4vw;
+    letter-spacing: 1px;
+    cursor:pointer;
+    font-size: 5.5vw;
+}
+form button:hover{
+    background-color: hsl(277, 91%, 5%);
+}
+/*----design for tablet screen---*/
+@media(min-width:600px){
+    main .down{
+    padding:32% 5% 10px;
+    width: 100%;
+}
+.down form input{
+    margin-top: 12px;
+    padding:20px;
+}
+.top .itemOne .cardbackNumbers{
+    font-size: 4vw;
+    top:43%;
+}
+}
+
+/*----design for desktop screen---*/
+@media screen and (min-width:870px){
+
+main{
+    align-items: flex-start;
+    flex-direction:row;
+}
+main .top{
+    width: 35%;
+    position: relative;
+    height: 100vh;
+     background:linear-gradient(hsl(278, 68%, 11%), hsl(278, 94%, 30%))
+}
+/*-back-view-of-card-*/
+.top .itemOne{
+    right:-47%;
+    top: 49%;
+}
+
+.top .itemOne .cardBackImage{
+    width: 25vw;
+}
+.top .itemOne .cardbackNumbers{
+    right:10%; 
+    bottom:18%;
+    font-size: 1.2em;
+}
+/*-front-view-of-card*/
+.top .itemTwo{
+    left:40%;
+    top:19%;
+}
+.top .itemTwo .cardFrontImage{
+    width: 25vw;
+    box-shadow: none;
+    cursor: pointer;
+}
+.itemTwo .cardOwnerName{
+    font-size: 1.6vw;
+}
+.itemTwo .cardOwnerNumber{
+    font-size: 1.8vw;
+}
+/*-back-view-of-card-*/
+.itemTwo .cardFrontNumber{
+    font-size: 1.8vw;
+}
+/*-name and number on card bottom-*/
+.itemTwo .cardbottom{
+    font-size: 1.3vw;
+}
+
+
+/*--card-form--*/
+
+
+main .down{
+    width:70%;
+    padding-left: 20%;
+    padding-top: 12%;
+    padding-right: 10%;
+}
+.down form label{
+    font-size: 1.1vw;
+}
+.down form input{
+    padding:12px 15px;
+    font-size: 1.3vw;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+form input::placeholder{
+    font-size: 1.3vw;
+}
+
+form button{
+    padding:12px 20px;
+    font-size: 1.4vw;
+    margin:10px auto;
+}
+form button:hover{
+    background-color: hsl(277, 91%, 5%);
+}
+
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+  <!--link to css page-->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!---card----->
+  <main>
+
+    <!--back-view-of-card-->
+    <div class="top">
+      <div class="itemOne">
+        <!--image-of-card-back-->
+        <img class="cardBackImage" src="images/bg-card-back.png" alt="cardback">
+        <!--numbers-on-card-->
+        <span class="cardbackNumbers">000</span>
+      </div>
+
+      <!--front-view-of-card-->
+      <div class="itemTwo">
+        <!--image-of-card-front-->
+        <img src="images/bg-card-front.png" alt="cardfront" class="cardFrontImage">
+        <!--card-logo-->
+        <img src="images/card-logo.svg" alt="cardlogo" class="card-logo">
+        <!--numbers-on-card-->
+        <span class="cardFrontNumber">0000 0000 0000 0000</span>
+        <!--name and number on card bottom-->
+        <div class="cardbottom">
+          <p class="cardOwnerName">JANE APPLESEED</p>
+          <p class="cardOwnerNumber">00/00</p>
+        </div>
+      </div>
+
+    </div>
+    <!--card-form-->
+    <div class="down">
+      <form>
+        <!--card holder name section-->
+        <label for="name">CARDHOLDER NAME</label><br>
+        <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed">
+        <br>
+        <!--card number section-->
+        <label for="number">CARD NUMBER</label><br>
+        <input type="number" name="number" id="number" placeholder="e.g. 1234 5678 9123 0000">
+        <br>
+        <!--last part of card-->
+        <div class="bottomOfForms">
+          <!--date(month and year)-->
+          <div class="date">
+            <div>
+              <label for="MM">EXP. DATE</label><br>
+              <input type="number" placeholder="MM" name="MM" id="MM">
+            </div>
+            <div>
+              <label for="YY">(MM/YY)</label><br>
+              <input type="number" placeholder="YY" name="YY" id="YY">
+            </div>
+          </div>
+          <!--cvc section-->
+          <div class="cvc">
+
+            <label for="cvc"> CVC</label><br>
+            <input type="number" name="cvc" id="cvc" placeholder="e.g 123" maxlength="4">
+
+          </div>
+        </div>
+        <!--submit button-->
+        <button id="confirmBtn">Confirm</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Completed state start -->
+  <!------
+  Thank you!
+  We've added your card details
+  Continue
+----->
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Adu-Boahen</a>.
+  </div>
+
+  <!---javscript code-->
+  <script>
+    //card output
+    let cvcDisplay = document.querySelector(".cardbackNumbers");
+    let cardNumber = document.querySelector(".cardFrontNumber");
+    let cardOwnerName = document.querySelector(".cardOwnerName");
+    let expDate = document.querySelector(".cardOwnerNumber");
+
+    //card input
+    let inputName = document.getElementById("name");
+    let inputNumber = document.getElementById("number");
+    let month = document.getElementById("MM");
+    let year = document.getElementById("YY");
+    let cvc = document.getElementById("cvc");
+    let confirmBtn = document.getElementById("confirmBtn");
+
+
+    //a function when button is clicked..............
+    confirmBtn.onclick = (e) => {
+      e.preventDefault();
+
+      //when button is clicked but input fields are empty
+      if (year.value == "" || month.value == "" || inputName.value == "" || cvc.value == "" || inputNumber.value == "") {
+        alert("No input field should be empty")
+      } else {
+
+        //displaying the cvc on card
+        let cvcValue = cvc.value.trim();
+        let cvcPattern = /^\d{3,4}$/;
+        //validating cvc number
+        if (cvcPattern.test(cvcValue)) {
+          cvcDisplay.innerHTML = cvcValue;
+        } else {
+          alert("Invalid CVC. Enter 3 digits only")
+        }
+
+        //displaying the card number on card
+        let cardValue = inputNumber.value.trim();
+        let cardPattern = /^\d{15,16}$/;
+        //validating card number
+        if (cardPattern.test(cardValue)) {
+          cardNumber.innerHTML = cardValue.replace(/\s+/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
+        } else {
+          alert("Invalid card number. Enter between 15 to 16 digits only")
+        }
+        //displaying the card owner name on card
+        cardOwnerName.innerHTML = inputName.value;
+        //displaying the exp date on card.....................
+        //validating month input
+        if (month.value > 12) {
+          alert('Invalid month input')
+        } else {
+          expDate.innerHTML = `${month.value}/${year.value}`;
+        }
+        //validating year input
+        if (year.value > 1980 && year.value <= 2026) {
+          expDate.innerHTML = `${month.value}/${year.value}`;
+        } else {
+          alert('Invalid year input')
+        }
+      }
+
+
+      //search on how to add spaces after the 4 digit in a list of numbers..............
+    }
+
+  </script>
+</body>
+
+</html>
